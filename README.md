@@ -1,5 +1,5 @@
 # TIMBER
-Tensor Induced Multilingual knowledge Base Entity Resolution
+Tensor Induced Multilingual knowledge Base Entity Resolution (TIMBER)
 
 TIMBER is a tool created by Anthony D. Davis, Assistant Professor of Computer Science at Lyon College.
 TIMBER is designed for scholars in Digital Humanities to create a simple knowledge base and tag large corpora of domain specific texts.
