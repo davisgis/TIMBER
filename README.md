@@ -4,4 +4,5 @@ Tensor Induced Multilingual knowledge Base Entity Resolution
 TIMBER is a tool created by Anthony D. Davis, Assistant Professor of Computer Science at Lyon College.
 TIMBER is designed for scholars in Digital Humanities to create a simple knowledge base and tag large corpora of domain specific texts.
 
-Details of its creation, use, etc can be found in the following dissertation: A. D. Davis, ìCombing Texts: A Quest to Increase the Timeliness and Accuracy of Geotagging Multilingual Toponyms and Tagging Persons in Large Corpora Using Tensors for Disambiguation,î Ph.D. Dissertation, Engineering and Information Technology, University of Arkansas at Little Rock, 2019.
+Details of its creation, use, etc can be found in the following dissertation: 
+A. D. Davis, ‚ÄúCombing Texts: A Quest to Increase the Timeliness and Accuracy of Geotagging Multilingual Toponyms and Tagging Persons in Large Corpora Using Tensors for Disambiguation,‚Äù Ph.D. Dissertation, Engineering and Information Technology, University of Arkansas at Little Rock, 2019.
