@@ -504,19 +504,18 @@ for i in range(1,2):
     # 4: John-English [Loaded]
     # 5: Ante-Nicene Volume 1 [Loaded]
     #------------------------
-    authorityFile = 'C:\\Users\\Davis-PC\\lpthw\\AuthorityFile\\AllwGreek.csv'
+    authorityFile = 'C:\\Texts\\Authority Files\\AllwGreek.csv'
     #rawText = 'http://www.gutenberg.org/files/31802/31802-0.txt'    #NT-Greek
     #if numTexts == 1:
     #    urlText = 'http://www.gutenberg.org/cache/epub/8040/pg8040.txt' #Matthew-English-1
     #    title = '1-Matthew'
     #    urlSelection = True
     if numTexts == 1:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\MatthewVaticanGreek.txt' #Matthew-Vatican
-
+        filename = 'http://www.gutenberg.org/cache/epub/8040/pg8040.txt' #Matthew-Gutenberg
         #filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\61-MtUTF8.txt' #Matthew-Vatican
         rawText  = open(filename, "r", encoding="utf-8")
         title = '1a-Matthew-Greek'
-        urlSelection = False
+        urlSelection = True
     elif numTexts == 2:
         urlText = 'http://www.gutenberg.org/cache/epub/8041/pg8041.txt' #Mark-English-2
         title = '2-Mark'
