@@ -34,5 +34,5 @@ def loadBulk(authorityFile, baseMaxIndex, MaxID, numTexts):
                     #bulkArray[int(entity["ID"]), int(connection), int(baseMaxIndex)] = 1
                     #bulkArray[int(connection), int(entity["ID"]), int(baseMaxIndex)] = 1
                     print("Now connecting: ", entity["ID"], "-", int(0), "-", int(j),":", connection)
-        hkl.dump(bulkArray, 'C:\\Users\\Davis-PC\\lpthw\\data.hkl', mode='w')
+        hkl.dump(bulkArray, 'C:\\Texts\\DataFiles\\data.hkl', mode='w')
     return bulkArray

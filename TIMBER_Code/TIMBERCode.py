@@ -36,8 +36,8 @@ def connection():
     #print("title = %s" % page.extractText())
     # FIND THE MAX VALUE ID IN THE ENTITY AUTHORITY FILE. This is needed for the matrix size
     MaxID = []
-    #with open('C:\\Users\\Davis-PC\\lpthw\\AuthorityFile\\NT_People_Places.csv', encoding='utf-8') as csvfile:
-    #with open('C:\\Users\\Davis-PC\\lpthw\\AuthorityFile\\AllwGreek.csv', encoding='utf-8') as csvfile:
+    #with open('C:\\Texts\\AuthorityFile\\NT_People_Places.csv', encoding='utf-8') as csvfile:
+    #with open('C:\\Texts\\AuthorityFile\\AllwGreek.csv', encoding='utf-8') as csvfile:
     with open(authorityFile, encoding='utf-8') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
@@ -77,7 +77,7 @@ def readText():#filepath):
             raw = response.read().decode('utf8')
         else:
             raw = rawText.read()
-        #f = open('C:\\Users\\Davis-PC\\lpthw\\MatthewGreek.txt')
+        #f = open('C:\\Texts\\MatthewGreek.txt')
         #raw = f.read().decode('utf8')
         #raw = 'τὰ γὰρ πρὸ αὐτῶν καὶ τὰ ἔτι παλαίτερα σαφῶς μὲν εὑρεῖν διὰ χρόνου πλῆθος ἀδύνατα ἦν'
         type(raw).encode('utf-8')
@@ -99,8 +99,8 @@ def entityMatch():
     # Loop through the list depending on the size of the text (ie: how many tokens)
     # First, print out the max number of tokens in the text to the screen
     print('Total Tokens:', len(TextList2))
-    #with open('C:\\Users\\Davis-PC\\lpthw\\AuthorityFile\\NT_People_Places.csv', encoding='utf-8') as csvfile:
-    #with open('C:\\Users\\Davis-PC\\lpthw\\AuthorityFile\\AllwGreek.csv', encoding='utf-8') as csvfile:
+    #with open('C:\\Texts\\AuthorityFile\\NT_People_Places.csv', encoding='utf-8') as csvfile:
+    #with open('C:\\Texts\\AuthorityFile\\AllwGreek.csv', encoding='utf-8') as csvfile:
     with open(authorityFile, encoding='utf-8') as csvfile:
         reader = csv.DictReader(csvfile)
         # For each entity in the authority file, see if it matches the current text file entity
@@ -223,12 +223,12 @@ def calculateCertainCooccurrence(numTexts, maxID):
     #print("Text token: ", obj.ID, obj.tokenText, "has a certain match with a score of:", a[int(obj.ambCandidates[0]), int(obj2.ambCandidates[0]), int(0)])
 
     # Using pickle to save to file (Source: https://stackoverflow.com/questions/3685265/how-to-write-a-multidimensional-array-to-a-text-file)
-####    output = open('C:\\Users\\Davis-PC\\lpthw\\data.pkl', 'wb')
+####    output = open('C:\\Texts\\data.pkl', 'wb')
 ####    pickle.dump(a, output)
 ####    output.close()
 
     #Can use pickle to load the 3D matrix back into the program (Same source as above)
-####    pkl_file = open('C:\\Users\\Davis-PC\\lpthw\\data.pkl', 'rb')
+####    pkl_file = open('C:\\Texts\\data.pkl', 'rb')
 ####    a = pickle.load(pkl_file)
 ####    #pprint.pprint(a)
 ####    pkl_file.close()
@@ -423,7 +423,7 @@ def assignAuthType():
 #      STEP SEVEN: Print out the tagged text in xml format
 #----------------------------------------------------------------------------------------------------
 def printTaggedText():
-    with open("C:\\Users\\Davis-PC\\lpthw\\Results_Final\\"+ title + ".xml", "a", encoding='utf8') as f:
+    with open("C:\\Texts\\Results\\"+ title + ".xml", "a", encoding='utf8') as f:
         print('<?xml version="1.0" encoding="UTF-8"?>', file=f)
         print('<TEI xmlns="http://www.tei-c.org/ns/1.0">', file=f)
         print(' <teiHeader>', file=f)
@@ -504,16 +504,16 @@ for i in range(1,2):
     # 4: John-English [Loaded]
     # 5: Ante-Nicene Volume 1 [Loaded]
     #------------------------
-    authorityFile = 'C:\\Texts\\Authority Files\\AllwGreek.csv'
+    authorityFile = 'C:\\Texts\\AuthorityFile\\AllwGreek.csv'
     #rawText = 'http://www.gutenberg.org/files/31802/31802-0.txt'    #NT-Greek
     #if numTexts == 1:
     #    urlText = 'http://www.gutenberg.org/cache/epub/8040/pg8040.txt' #Matthew-English-1
     #    title = '1-Matthew'
     #    urlSelection = True
     if numTexts == 1:
-        filename = 'http://www.gutenberg.org/cache/epub/8040/pg8040.txt' #Matthew-Gutenberg
-        #filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\61-MtUTF8.txt' #Matthew-Vatican
-        rawText  = open(filename, "r", encoding="utf-8")
+        urlText = 'http://www.gutenberg.org/cache/epub/8040/pg8040.txt' #Matthew-Gutenberg
+        #filename = 'C:\\Texts\\Texts\\61-MtUTF8.txt' #Matthew-Vatican
+        #rawText  = open(filename, "r", encoding="utf-8")
         title = '1a-Matthew-Greek'
         urlSelection = True
     elif numTexts == 2:
@@ -530,195 +530,195 @@ for i in range(1,2):
         urlSelection = True
         ####################################################
     elif numTexts == 5:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_1_1_Clement_of_Rome_Introduction.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_1_1_Clement_of_Rome_Introduction.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '5_Vol_1_1_1_Clement_of_Rome_Introduction'
         urlSelection = False
     elif numTexts == 6:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_1_Clement_of_Rome.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_1_Clement_of_Rome.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '6_Vol_1_1_Clement_of_Rome_Texts'
         urlSelection = False
     elif numTexts == 7:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_2_1_Mathetes_Introduction.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_2_1_Mathetes_Introduction.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '7_Vol_1_2_1_Mathetes_Introduction'
         urlSelection = False
     elif numTexts == 8:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_2_Mathetes.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_2_Mathetes.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '8_Vol_1_1_Mathetes_Texts'
         urlSelection = False
     elif numTexts == 9:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_3_a_1_Polycarp_Epistle_to_the_Philippians_Introduction.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_3_a_1_Polycarp_Epistle_to_the_Philippians_Introduction.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '9_Vol_1_3_a_1_Polycarp_Epistle_to_the_Philippians_Introduction'
         urlSelection = False
     elif numTexts == 10:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_3_a_Polycarp_Epistle_to_the_Philippians.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_3_a_Polycarp_Epistle_to_the_Philippians.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '10_Vol_1_3_a_Polycarp_Epistle_to_the_Philippians'
         urlSelection = False
     elif numTexts == 11:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_3_b_1_Polycarp_Martyrdom_Introduction.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_3_b_1_Polycarp_Martyrdom_Introduction.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '11_Vol_1_3_b_1_Polycarp_Martyrdom_Introduction'
         urlSelection = False
     elif numTexts == 12:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_3_b_Polycarp_Martyrdom.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_3_b_Polycarp_Martyrdom.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '12_Vol_1_3_b_Polycarp_Martyrdom'
         urlSelection = False
     elif numTexts == 13:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_4_1_Ignatius_Epistles_Introduction.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_4_1_Ignatius_Epistles_Introduction.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '13_Vol_1_4_1_Ignatius_Epistles_Introduction'
         urlSelection = False
     elif numTexts == 14:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_4_a_Ignatius_Epistle_to_the_Ephesians.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_4_a_Ignatius_Epistle_to_the_Ephesians.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '14_Vol_1_4_a_Ignatius_Epistle_to_the_Ephesians'
         urlSelection = False
     elif numTexts == 15:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_4_b_Ignatius_Epistle_to_the_Magnesians.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_4_b_Ignatius_Epistle_to_the_Magnesians.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '15_Vol_1_4_b_Ignatius_Epistle_to_the_Magnesians'
         urlSelection = False
     elif numTexts == 16:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_4_c_Ignatius_Epistle_to_the_Trallians.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_4_c_Ignatius_Epistle_to_the_Trallians.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '16_Vol_1_4_c_Ignatius_Epistle_to_the_Trallians'
         urlSelection = False
     elif numTexts == 17:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_4_d_Ignatius_Epistle_to_the_Philadelphians.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_4_d_Ignatius_Epistle_to_the_Philadelphians.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '17_Vol_1_4_d_Ignatius_Epistle_to_the_Philadelphians'
         urlSelection = False
     elif numTexts == 18:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_4_e_Ignatius_Epistle_to_the_Romans.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_4_e_Ignatius_Epistle_to_the_Romans.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '18_Vol_1_4_e_Ignatius_Epistle_to_the_Romans'
         urlSelection = False
     elif numTexts == 19:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_4_f_Ignatius_Epistle_to_the_Smyrnæans.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_4_f_Ignatius_Epistle_to_the_Smyrnæans.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '19_Vol_1_4_f_Ignatius_Epistle_to_the_Smyrnæans'
         urlSelection = False
     elif numTexts == 20:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_4_g_Ignatius_Epistle_to_the_Polycarp.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_4_g_Ignatius_Epistle_to_the_Polycarp.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '20_Vol_1_4_g_Ignatius_Epistle_to_the_Polycarp'
         urlSelection = False
     elif numTexts == 21:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_4_h_1_Ignatius_Syriac_Introduction.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_4_h_1_Ignatius_Syriac_Introduction.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '21_Vol_1_4_h_1_Ignatius_Syriac_Introduction'
     elif numTexts == 22:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_4_h_Ignatius_Syriac.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_4_h_Ignatius_Syriac.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '22_Vol_1_4_h_Ignatius_Syriac'
         urlSelection = False
     elif numTexts == 23:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_4_i_1_Ignatius_Spurious_Epistles_Introduction.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_4_i_1_Ignatius_Spurious_Epistles_Introduction.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '23_Vol_1_4_i_1_Ignatius_Spurious_Epistles_Introduction'
     elif numTexts == 24:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_4_i_Ignatius_Spurious_Epistles.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_4_i_Ignatius_Spurious_Epistles.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '24_Vol_1_4_i_Ignatius_Spurious_Epistles'
         urlSelection = False
     elif numTexts == 25:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_4_j_1_Ignatius_Martyrdom_Introduction.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_4_j_1_Ignatius_Martyrdom_Introduction.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '25_Vol_1_4_j_1_Ignatius_Martyrdom_Introduction'
         urlSelection = False
     elif numTexts == 26:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_4_j_Ignatius_Martyrdom.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_4_j_Ignatius_Martyrdom.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '26_Vol_1_4_j_Ignatius_Martyrdom'
         urlSelection = False
     elif numTexts == 27:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_5_1_Barnabas_Introduction.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_5_1_Barnabas_Introduction.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '27_Vol_1_5_1_Barnabas_Introduction'
         urlSelection = False
     elif numTexts == 28:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_5_Barnabas.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_5_Barnabas.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '28_Vol_1_5_Barnabas'
         urlSelection = False
     elif numTexts == 29:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_6_1_Papias_Introduction.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_6_1_Papias_Introduction.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '29_Vol_1_6_1_Papias_Introduction'
         urlSelection = False
     elif numTexts == 30:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_6_Papias.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_6_Papias.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '30_Vol_1_6_Papias'
         urlSelection = False
     elif numTexts == 31:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_7_1_Justin_Martyr_Introduction.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_7_1_Justin_Martyr_Introduction.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '31_Vol_1_7_1_Justin_Martyr_Introduction'
         urlSelection = False
     elif numTexts == 32:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_7_a_Justin_Martyr_First_Apology.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_7_a_Justin_Martyr_First_Apology.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '32_Vol_1_7_a_Justin_Martyr_First_Apology'
         urlSelection = False
     elif numTexts == 33:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_7_b_Justin_Martyr_Second_Apology.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_7_b_Justin_Martyr_Second_Apology.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '33_Vol_1_7_b_Justin_Martyr_Second_Apology'
         urlSelection = False
     elif numTexts == 34:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_7_c_Justin_Martyr_Dialouge_with_Trypho.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_7_c_Justin_Martyr_Dialouge_with_Trypho.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '34_Vol_1_7_c_Justin_Martyr_Dialouge_with_Trypho'
         urlSelection = False
     elif numTexts == 35:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_7_d_Justin_Martyr_Discourse_to_the_Greeks.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_7_d_Justin_Martyr_Discourse_to_the_Greeks.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '35_Vol_1_7_d_Justin_Martyr_Discourse_to_the_Greeks'
         urlSelection = False
     elif numTexts == 36:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_7_e_Justin_Martyr_Hortatory_Address_to_the_Greeks.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_7_e_Justin_Martyr_Hortatory_Address_to_the_Greeks.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '36_Vol_1_7_e_Justin_Martyr_Hortatory_Address_to_the_Greeks'
         urlSelection = False
     elif numTexts == 37:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_7_f_Justin_Martyr_On_the_Sole_Government_of_God.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_7_f_Justin_Martyr_On_the_Sole_Government_of_God.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '37_Vol_1_7_f_Justin_Martyr_On_the_Sole_Government_of_God'
         urlSelection = False
     elif numTexts == 38:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_7_g_Justin_Martyr_On_the_Resurrection.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_7_g_Justin_Martyr_On_the_Resurrection.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '38_Vol_1_7_g_Justin_Martyr_On_the_Resurrection'
         urlSelection = False
     elif numTexts == 39:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_7_h_Justin_Martyr_Other_Fragments.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_7_h_Justin_Martyr_Other_Fragments.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '39_Vol_1_7_h_Justin_Martyr_Other_Fragments'
         urlSelection = False
     elif numTexts == 40:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_7_i_Justin_Martyr_Martydom.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_7_i_Justin_Martyr_Martydom.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '40_Vol_1_7_i_Justin_Martyr_Martydom'
         urlSelection = False
     elif numTexts == 41:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_8_a_1_Irenaeus_Against_Heresies_Introduction.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_8_a_1_Irenaeus_Against_Heresies_Introduction.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '41_Vol_1_8_a_1_Irenaeus_Against_Heresies_Introduction'
         urlSelection = False
     elif numTexts == 42:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_8_a_Irenaeus_Against_Heresies.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_8_a_Irenaeus_Against_Heresies.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '42_Vol_1_8_a_Irenaeus_Against_Heresies'
         urlSelection = False
     elif numTexts == 43:
-        filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_1_8_b_Irenaeus_Fragments.txt' #Ante-Nicene-5
+        filename = 'C:\\Texts\\Vol_1_8_b_Irenaeus_Fragments.txt' #Ante-Nicene-5
         rawText  = open(filename, "r")
         title = '43_Vol_1_8_b_Irenaeus_Fragments'
         urlSelection = False
@@ -726,324 +726,324 @@ for i in range(1,2):
     volumes = 2
     if volumes == 2:
         if numTexts == 44:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_2_1_1_Pastor_of_Hermas_Introduction.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_2_1_1_Pastor_of_Hermas_Introduction.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '44_Vol_2_1_1_Pastor_of_Hermas_Introduction'
             urlSelection = False
         elif numTexts == 45:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_2_1_Pastor_of_Hermas.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_2_1_Pastor_of_Hermas.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '45_Vol_2_1_Pastor_of_Hermas'
             urlSelection = False
         elif numTexts == 46:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_2_2_1_Tatian_Introduction.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_2_2_1_Tatian_Introduction.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '46_Vol_2_2_1_Tatian_Introduction'
             urlSelection = False
         elif numTexts == 47:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_2_2_Tatian.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_2_2_Tatian.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '47_Vol_2_2_Tatian'
             urlSelection = False
         elif numTexts == 48:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_2_3_1_Theophilus_of_Antioch_Introduction.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_2_3_1_Theophilus_of_Antioch_Introduction.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '48_Vol_2_3_1_Theophilus_of_Antioch_Introduction'
             urlSelection = False
         elif numTexts == 49:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_2_3_Theophilus_of_Antioch.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_2_3_Theophilus_of_Antioch.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '49_Vol_2_3_Theophilus_of_Antioch'
             urlSelection = False
         elif numTexts == 50:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_2_4_1_Athenagoras_Introduction.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_2_4_1_Athenagoras_Introduction.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '50_Vol_2_4_1_Athenagoras_Introduction'
             urlSelection = False
         elif numTexts == 51:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_2_4_Athenagoras.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_2_4_Athenagoras.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '51_Vol_2_4_Athenagoras'
             urlSelection = False
         elif numTexts == 52:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_2_5_1_Clement_of_Alexandria_Introduction.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_2_5_1_Clement_of_Alexandria_Introduction.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '52_Vol_2_5_1_Clement_of_Alexandria_Introduction'
             urlSelection = False
         elif numTexts == 53:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_2_5_Clement_of_Alexandria.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_2_5_Clement_of_Alexandria.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '53_Vol_2_5_Clement_of_Alexandria'
             urlSelection = False
             #################################################
             ################################################
         elif numTexts == 54:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_3_1_Tertullian_Apologetics.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_3_1_Tertullian_Apologetics.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '54_Volume_Three_TertullianApologetic_Texts'
             urlSelection = False
         elif numTexts == 55:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_3_2_Tertullian_Anti_Marcion.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_3_2_Tertullian_Anti_Marcion.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '55_Volume_Three_TertullianAnti-Marcion_Texts'
             urlSelection = False
         elif numTexts == 56:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_3_3_Tertullian_Ethical.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_3_3_Tertullian_Ethical.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '56_Volume_Three_TertullianEthical_Texts'
             urlSelection = False
         elif numTexts == 57:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_4_1_Tertullian_PartFour.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_4_1_Tertullian_PartFour.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '57_Vol_4_Tertullian_Part_Four_Texts'
             urlSelection = False
         elif numTexts == 58:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_4_2_Minucius_Felix.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_4_2_Minucius_Felix.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '58_Vol_4_Minucius_Felix_Texts'
             urlSelection = False
         elif numTexts == 59:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_4_3_Commodianus.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_4_3_Commodianus.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '59_Vol_4_CommodianusTexts'
             urlSelection = False
         elif numTexts == 60:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_4_4_Origen.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_4_4_Origen.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '60_Vol_4_Origen_Texts'
             urlSelection = False
         elif numTexts == 61:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_5_1_Hippolytus.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_5_1_Hippolytus.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '61_Vol_5_Hippolytus_Texts'
             urlSelection = False
         elif numTexts == 62:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_5_2_Cyprian.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_5_2_Cyprian.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '62_Vol_5_Cyprian_Texts'
             urlSelection = False
         elif numTexts == 63:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_5_3_Caius.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_5_3_Caius.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '63_Vol_5_Caius_Texts'
             urlSelection = False
         elif numTexts == 64:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_5_4_Novatian.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_5_4_Novatian.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '64_Vol_5_Novatian_Texts'
             urlSelection = False
         elif numTexts == 65:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_6_1_Gregory_Thaumaturgus.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_6_1_Gregory_Thaumaturgus.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '65_Vol_6_Gregory_Thaumaturgus_Texts'
             urlSelection = False
         elif numTexts == 66:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_6_2_Dionysius.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_6_2_Dionysius.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '66_Vol_6_Dionysius_Texts'
             urlSelection = False
         elif numTexts == 67:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_6_3_Julius_Africanus.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_6_3_Julius_Africanus.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '67_Vol_6_Julius_Africanus_Texts'
             urlSelection = False
         elif numTexts == 68:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_6_4_Anatolius_and_Minor_Writers.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_6_4_Anatolius_and_Minor_Writers.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '68_Vol_6_Anatolius_and_Minor_Writers_Texts'
             urlSelection = False
         elif numTexts == 69:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_6_5_Archelaus.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_6_5_Archelaus.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '69_Vol_6_Archelaus_Texts'
             urlSelection = False
         elif numTexts == 70:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_6_6_Alexander_of_Lycopolis.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_6_6_Alexander_of_Lycopolis.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '70_Vol_6_Alexander_of_Lycopolis_Texts'
             urlSelection = False
         elif numTexts == 71:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_6_7_Peter_of_Alexandria.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_6_7_Peter_of_Alexandria.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '71_Vol_6_Peter_of_Alexandria_Texts'
             urlSelection = False
         elif numTexts == 72:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_6_8_Alexander_of_Alexandria.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_6_8_Alexander_of_Alexandria.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '72_Vol_6_Alexander_of_Alexandria_Texts'
             urlSelection = False
         elif numTexts == 73:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_6_9_Methodius.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_6_9_Methodius.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '73_Vol_6_Methodius_Texts'
             urlSelection = False
         elif numTexts == 74:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_6_10_Arnobius.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_6_10_Arnobius.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '74_Vol_6_Arnobius_Texts'
             urlSelection = False
         elif numTexts == 75:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_7_1_Lactantius.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_7_1_Lactantius.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '75_Vol_7_Lactantius_Texts'
             urlSelection = False
         elif numTexts == 76:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_7_2_Venantius.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_7_2_Venantius.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '76_Vol_7_Venantius_Texts'
             urlSelection = False
         elif numTexts == 77:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_7_3_Asterius_Urbanus.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_7_3_Asterius_Urbanus.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '77_Vol_7_Asterius_Urbanus_Texts'
             urlSelection = False
         elif numTexts == 78:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_7_4_Victorinus.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_7_4_Victorinus.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '78_Vol_7_Victorinus_Texts'
             urlSelection = False
         elif numTexts == 79:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_7_5_Dionysius.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_7_5_Dionysius.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '79_Vol_7_Dionysius_Texts'
             urlSelection = False
         elif numTexts == 80:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_7_6_Teaching_of_the_Twelve_Apostles.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_7_6_Teaching_of_the_Twelve_Apostles.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '80_Vol_7_Teaching_of_the_Twelve_Apostles_Texts'
             urlSelection = False
         elif numTexts == 81:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_7_7_Constitutions_of_the_Holy_Apostles.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_7_7_Constitutions_of_the_Holy_Apostles.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '81_Vol_7_Constitutions_of_the_Holy_Apostles_Texts'
             urlSelection = False
         elif numTexts == 82:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_7_8_Second_Epistle_of_Clement.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_7_8_Second_Epistle_of_Clement.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '82_Vol_7_Second_Epistle_of_Clement_Texts'
             urlSelection = False
         elif numTexts == 83:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_7_9_Nicene_Creed.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_7_9_Nicene_Creed.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '83_Vol_7_Nicene_Creed_Texts'
             urlSelection = False
         elif numTexts == 84:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_7_10_Early_Liturgies.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_7_10_Early_Liturgies.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '84_Vol_7_Early_Liturgies_Texts'
             urlSelection = False
         elif numTexts == 85:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_8_1_Testaments_of_the_Twelve_Patriarchs.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_8_1_Testaments_of_the_Twelve_Patriarchs.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '85_Vol_8_Testaments_of_the_Twelve_Patriarchs_Texts'
             urlSelection = False
         elif numTexts == 86:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_8_2_Excerpts_of_Theodotus.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_8_2_Excerpts_of_Theodotus.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '86_Vol_8_Excerpts_of_Theodotus_Texts'
             urlSelection = False
         elif numTexts == 87:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_8_3_Two_Epistles_Concerning_Virginity.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_8_3_Two_Epistles_Concerning_Virginity.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '87_Vol_8_Two_Epistles_Concerning_Virginity_Texts'
             urlSelection = False
         elif numTexts == 88:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_8_4_Pseudo-Clementine_Literature.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_8_4_Pseudo-Clementine_Literature.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '88_Vol_8_Pseudo-Clementine_Literature_Texts'
             urlSelection = False
         elif numTexts == 89:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_8_5_Apocrypha_of_the_New_Testament.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_8_5_Apocrypha_of_the_New_Testament.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '89_Vol_8_Apocrypha_of_the_New_Testament._Texts'
             urlSelection = False
         elif numTexts == 90:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_8_6_Decretals.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_8_6_Decretals.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '90_Vol_8_Decretals_Texts'
             urlSelection = False
         elif numTexts == 91:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_8_7_Memoirs_of_Edessa_and_Other_Ancient_Syriac_Documents.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_8_7_Memoirs_of_Edessa_and_Other_Ancient_Syriac_Documents.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '91_Vol_8_Memoirs_of_Edessa_and_Other_Ancient_Syriac_Documents'
             urlSelection = False
         elif numTexts == 92:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_8_8_Remains_of_the_Second_and_Third_Centuries.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_8_8_Remains_of_the_Second_and_Third_Centuries.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '92_Vol_8_Remains_of_the_Second_and_Third_Centuries_Texts'
             urlSelection = False
         elif numTexts == 93:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_9_1_Gospel_of_Peter.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_9_1_Gospel_of_Peter.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '93_Vol_9_Gospel_of_Peter_Texts'
             urlSelection = False
         elif numTexts == 94:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_9_2_Diatessaron_of_Tatian.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_9_2_Diatessaron_of_Tatian.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '94_Vol_9_Diatessaron_of_Tatian_Texts'
             urlSelection = False
         elif numTexts == 95:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_9_3_Apocalypse_of_Peter.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_9_3_Apocalypse_of_Peter.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '95_Vol_9_Apocalypse_of_Peter_Texts'
             urlSelection = False
         elif numTexts == 96:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_9_4_Vision_of_Paul.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_9_4_Vision_of_Paul.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '96_Vol_9_Vision_of_Paul_Texts'
             urlSelection = False
         elif numTexts == 97:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_9_5_Apocalpyse_of_the_Virgin.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_9_5_Apocalpyse_of_the_Virgin.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '97_Vol_9_Apocalpyse_of_the_Virgin_Texts'
             urlSelection = False
         elif numTexts == 98:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_9_6_Apocalypse_of_Sedrach.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_9_6_Apocalypse_of_Sedrach.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '98_Vol_9_Apocalypse_of_Sedrach_Texts'
             urlSelection = False
         elif numTexts == 99:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_9_7_Testament_of_Abraham.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_9_7_Testament_of_Abraham.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '99_Vol_9_Testament_of_Abraham_Texts'
             urlSelection = False
         elif numTexts == 100:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_9_8_Acts_of_Xanthippe_and_Polyxena.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_9_8_Acts_of_Xanthippe_and_Polyxena.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '100_Vol_9_Acts_of_Xanthippe_and_Polyxena_Texts'
             urlSelection = False
         elif numTexts == 101:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_9_9_Narrative_of_Zosimus.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_9_9_Narrative_of_Zosimus.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '101_Vol_9_Narrative_of_Zosimus_Texts'
             urlSelection = False
         elif numTexts == 102:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_9_10_Epistles_of_Clement.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_9_10_Epistles_of_Clement.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '102_Vol_9_Epistles_of_Clement_Texts'
             urlSelection = False
         elif numTexts == 103:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_9_11_Apology_of_Aristides_the_Philosopher.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_9_11_Apology_of_Aristides_the_Philosopher.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '103_Vol_9_Apology_of_Aristides_the_Philosopher_Texts'
             urlSelection = False
         elif numTexts == 104:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_9_12_Passion_of_the_Scillitan_Martyrs.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_9_12_Passion_of_the_Scillitan_Martyrs.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '104_Vol_9_Passion_of_the_Scillitan_Martyrs_Texts'
             urlSelection = False
         elif numTexts == 105:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_9_13_Epistle_to_Gregory.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_9_13_Epistle_to_Gregory.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '105_Vol_9_Epistle_to_Gregory_Texts'
             urlSelection = False
         elif numTexts == 106:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_9_14_Origen_Commentary_on_the_Gospel_of_John.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_9_14_Origen_Commentary_on_the_Gospel_of_John.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '106_Vol_9_Origen_Commentary_on_the_Gospel_of_John_Texts'
             urlSelection = False
         elif numTexts == 107:
-            filename = 'C:\\Users\Davis-PC\\lpthw\\Texts\\Vol_9_11_Vol_9_15_Origen_Commentary_on_the_Gospel_of_Matthew.txt' #Ante-Nicene-5
+            filename = 'C:\\Texts\\Vol_9_11_Vol_9_15_Origen_Commentary_on_the_Gospel_of_Matthew.txt' #Ante-Nicene-5
             rawText  = open(filename, "r")
             title = '107_Vol_9_Origen_Commentary_on_the_Gospel_of_Matthew_Texts'
             urlSelection = False
@@ -1089,7 +1089,7 @@ for i in range(1,2):
 
     # Can use pickle/hickle to load the 3D matrix back into the program (Same source as above)
     #if numTexts > 1:
-    #    a = hkl.load('C:\\Users\\Davis-PC\\lpthw\\data.hkl')
+    #    a = hkl.load('C:\\Texts\\data.hkl')
     #    now = time.time() #Time after it finished
     #    print("Loading tensor into a[] stopped at: ", now-then, " seconds")
     ######    #supervisedAddition(a)
@@ -1158,7 +1158,7 @@ for i in range(1,2):
     # Create the tensor file for loading next run
 
     if numTexts == 4:
-        hkl.dump(a, 'C:\\Users\\Davis-PC\\lpthw\\data.hkl')
+        hkl.dump(a, 'C:\\Texts\\DataFiles\\data.hkl')
         now = time.time() #Time after it finished
         print("Dumping Tensor into file stopped at: ", now-then, " seconds")
 
