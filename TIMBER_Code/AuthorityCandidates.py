@@ -45,7 +45,7 @@ def findAuthorityCandidates(authorityFile, TextList2, title):
     #    if word in name:
             #print(word)
     #        propernouns.remove(word)
-    with open("C:\\Users\\Davis-PC\\lpthw\\Results_Final\\Candidates\\"+ title + "_Possible_Candidates.csv", "a", encoding='utf8') as f:
+    with open("C:\\Texts\\Results\\Candidates\\"+ title + "_Possible_Candidates.csv", "a", encoding='utf8') as f:
         for candidate in finalwords:
             print(candidate, file=f)
 

@@ -111,7 +111,7 @@ def entityMatch():
         candidateList = []
         for card in authTokens:
             if language == "English":
-                #Added this logic in order to find a surname before certainAbiguity()
+                #Added this logic in order to find a surname before certainAmbiguity()
                 #if i > 0 and i < len(TextList2)-1:
                     if TextList2[i].isupper():
                         if TextList2[i] == card.name.capitalize() or TextList2[i] == card.surname.capitalize() or TextList2[i]  == card.alias1.capitalize()  or TextList2[i] == card.alias2.capitalize()  or TextList2[i]  == card.alias3.capitalize()  or TextList2[i]  == card.alias4.capitalize() or TextList2[i]  == card.alias5.capitalize():
@@ -142,6 +142,8 @@ def entityMatch():
             ambCandScoreList = []
             textTokens.append(TextTokens(i, TextList2[i], False, False, propernouns[i], False, card.greekLemma, card.greekSurname, "Unassigned", "Unknown", 0, candidateList, ambCandScoreList))
     csvfile.close()
+    #DEBUG FOR OBJECTS: Display cards
+    #printTokenCards(textTokens)
     return TextList2
 
 #------------------------------------------------
@@ -482,7 +484,7 @@ def printTaggedText():
 #   TEXTS IN TENSOR
 ######################
 #numTexts = 1
-for i in range(1,2):
+for i in range(1,3):
     then = time.time() #Time before the operations start
     print('Started at: {:%Y-%m-%d %H:%M:%S}'.format(datetime.datetime.now()))
 
@@ -1049,7 +1051,7 @@ for i in range(1,2):
             urlSelection = False
 
     #langInput = input("In what language will the works be? 1 for English, 2 for Greek")
-    langInput = "2"
+    langInput = "1"
     if langInput == "1":
         language = 'English'
     else:
