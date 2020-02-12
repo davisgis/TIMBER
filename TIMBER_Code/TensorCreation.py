@@ -8,12 +8,12 @@ import sys
 
 def saveTensor(a):
     # Using pickle to save to file (Source: https://stackoverflow.com/questions/3685265/how-to-write-a-multidimensional-array-to-a-text-file)
-    output = open('C:\\Users\\Davis-PC\\lpthw\\data.pkl', 'wb')
+    output = open('C:\\Texts\\DataFiles\\data.pkl', 'wb')
     pickle.dump(a, output)
     output.close()
 
     #Can use pickle to load the 3D matrix back into the program (Same source as above)
-    pkl_file = open('C:\\Users\\Davis-PC\\lpthw\\data.pkl', 'rb')
+    pkl_file = open('C:\\Texts\\DataFiles\\data.pkl', 'rb')
     a = pickle.load(pkl_file)
     #pprint.pprint(a)
     pkl_file.close()
@@ -23,7 +23,7 @@ def saveTensor(a):
 # 10/27/2018 - right now, this function is not needed. However, I may use it eventually to load data (same as statement in certainCooccurrence now)
 def loadTensor():
     #Can use pickle to load the 3D matrix back into the program (Same source as above)
-    pkl_file = open('C:\\Users\\Davis-PC\\lpthw\\data.pkl', 'rb')
+    pkl_file = open('C:\\Texts\\DataFiles\\data.pkl', 'rb')
     a = pickle.load(pkl_file)
     #pprint.pprint(a)
     pkl_file.close()
@@ -32,7 +32,7 @@ def loadTensor():
 
 #Definition to view tensor (all, one row, etc)
 def printTensor(a, authTokens, title, numTexts):
-    f = open("C:\\Users\\Davis-PC\\lpthw\\after" + title + "TensorIndex.out", 'w')
+    f = open("C:\\Texts\\DataFiles\\after" + title + "TensorIndex.out", 'w')
     default_stdout = sys.stdout
     sys.stdout = f
     print("ID1,Name1,ID2,Name2,Score")
