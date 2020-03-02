@@ -20,6 +20,8 @@ pip install cltk
 
 pip install nltk
 
+pip install numpy
+
 NOTE 1 (Windows):
 Make sure to place lemmata file in c:\\username\cltk_data\greek\model\greek_models_cltk\lemmata\greek_lemmata_cltk.py
 
@@ -34,3 +36,6 @@ C:\Texts\Results\Candidates
 
 Note 3: 
 Flags: English/Greek needs to be set
+
+NOTE 4: March 2, 2020
+Due to CLTK package, only 3.6 and 3.7 is supported.
