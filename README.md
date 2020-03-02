@@ -13,8 +13,11 @@ Installation Notes
 
 INSTALL:
 pip install pypdf2
+
 pip install hickle
+
 pip install cltk
+
 pip install nltk
 
 NOTE 1 (Windows):
@@ -22,8 +25,11 @@ Make sure to place lemmata file in c:\\username\cltk_data\greek\model\greek_mode
 
 NOTE 2 (Windows):
 Add the following paths
+
 C:\Texts\AuthorityFile
+
 C:\Texts\DataFiles
+
 C:\Texts\Results\Candidates
 
 Note 3: 
